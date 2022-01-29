@@ -1,11 +1,14 @@
-import 'kity';
-import 'kityminder-core';
+"use strict";
+
+import '../../../kity/dist/kity.js';
+import '../../../kityminder-core/dist/kityminder.core.min.js';
+// import 'kityminder-core';
 import '../node_modules/hotbox/hotbox.js';
 import Editor from './kityminder/editor';
 import './style/style.less';
 import '../node_modules/hotbox/less/hotbox.less';
 
-class MinderEditor {
+export default class MinderEditor {
     constructor(el) {
         this.editor = new Editor(el);
     }
@@ -18,5 +21,3 @@ class MinderEditor {
         this.editor.minder.on(event, callback);
     }
 }
-
-export default MinderEditor;

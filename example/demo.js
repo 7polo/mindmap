@@ -1,4 +1,6 @@
+"use strict";
 import MinderEditor from "../src";
+// import MinderEditor from "../dist/bundle";
 
 const editor = new MinderEditor("#minder");
 editor.importJson({

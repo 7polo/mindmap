@@ -10,13 +10,6 @@
     ]
   ],
   "plugins": [
-    [
-      "transform-remove-strict-mode",
-      {
-        loose: true,
-        strictMode: false
-      }
-    ]
   ],
   "env": {
     "test": {
