@@ -2,12 +2,11 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    // entry: {
-    //     'bundle': __dirname + '/src/index.js',
-    //     'example': __dirname + '/example/demo.js',
-    // },
+    entry: {
+        'index': __dirname + '/src/index.js',
+        'example': __dirname + '/example/demo.js',
+    },
     output: {
-        filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         library: 'MindEditor',
         libraryTarget: 'umd',

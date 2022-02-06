@@ -1,6 +1,6 @@
 {
   "name": "@7polo/mindmap",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "mindmap",
   "main": "./dist/bundle.js",
   "scripts": {
@@ -13,8 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "hotbox": "github:fex-team/hotbox",
-    "kity": "^2.0.4",
-    "kityminder-core": "^1.4.50"
+    "@7polo/kity": "^2.0.7",
+    "@7polo/kityminder-core": "^1.4.50"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
