@@ -2,7 +2,7 @@
   "name": "@7polo/mindmap",
   "version": "1.0.4",
   "description": "mindmap",
-  "main": "./dist/bundle.js",
+  "main": "./dist/index.js",
   "scripts": {
     "minder-dev": "npx webpack serve",
     "minder-proc": "webpack --mode production && sh ./_export.sh",
