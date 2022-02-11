@@ -12,11 +12,19 @@ export default class MinderEditor {
         this.editor = new Editor(el);
     }
 
-    importJson(json) {
-        this.editor.minder.importJson(json);
+    getMinder() {
+        return this.editor.minder;
     }
 
-    on(event, callback) {
-        this.editor.minder.on(event, callback);
+    import(json) {
+        this.getMinder().importJson(json);
+    }
+
+    onEvent(event, callback) {
+        this.getMinder().on(event, callback);
+    }
+
+    execCommand(cmd, params = []) {
+        this.getMinder().execCommand.apply(this.getMinder(), [cmd].concat(params || []));
     }
 }

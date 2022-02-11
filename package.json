@@ -1,7 +1,7 @@
 {
   "name": "@7polo/mindmap",
-  "version": "1.0.4",
-  "description": "mindmap",
+  "version": "1.0.6",
+  "description": "mindmap powered by kityminder",
   "main": "./dist/index.js",
   "scripts": {
     "minder-dev": "npx webpack serve",
