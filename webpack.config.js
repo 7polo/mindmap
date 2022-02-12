@@ -8,7 +8,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        library: 'MindEditor',
+        library: 'MinderEditor',
         libraryTarget: 'umd',
         libraryExport: 'default',
     },

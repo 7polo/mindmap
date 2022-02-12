@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "\nexport default MindEditor" >> ./dist/index.js
+echo "\nexport default MinderEditor" >> ./dist/index.js
