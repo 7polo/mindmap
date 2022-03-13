@@ -1,6 +1,6 @@
 {
   "name": "@7polo/mindmap",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "mindmap powered by kityminder",
   "main": "./dist/index.js",
   "scripts": {
@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hotbox": "github:fex-team/hotbox",
     "@7polo/kity": "^2.0.7",
     "@7polo/kityminder-core": "^1.4.50"
   },

@@ -1,8 +1,8 @@
-import 'hotbox/less/hotbox.less';
+import './hotbox/hotbox.css';
 import './style/style.less';
 import '@7polo/kity/dist/kity.js';
 import '@7polo/kityminder-core/dist/kityminder.core.min.js';
-import 'hotbox/hotbox.js';
+import './hotbox/hotbox.js';
 
 import Editor from './kityminder/editor';
 
