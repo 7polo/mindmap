@@ -2,6 +2,8 @@ import './hotbox/hotbox.css';
 import './style/style.less';
 import '@7polo/kity/dist/kity.js';
 import '@7polo/kityminder-core/dist/kityminder.core.min.js';
+import '@7polo/kityminder-core/dist/kityminder.core.min.js';
+// import '/Users/baoqianyong/Documents/code/workspace-front/kityminder-core/dist/kityminder.core.js';
 import './hotbox/hotbox.js';
 
 import Editor from './kityminder/editor';
