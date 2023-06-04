@@ -3,7 +3,7 @@ import MinderEditor from "../src";
 // import MinderEditor from "../dist/bundle";
 
 const editor = new MinderEditor("#minder");
-editor.importJson({
+editor.import({
     "root": {
         "data": {
             "text": "账号"
@@ -15,9 +15,10 @@ editor.importJson({
             {"data": {"text": "音乐"}},
             {"data": {"text": "图片"}},
             {"data": {"text": "视频"}},
-            {"data": {"text": "地图"}},
+            {"data": {"text": "地图"}, "children": [ {"data": {"text": "网页"}}]},
             {"data": {"text": "百科", "expandState": "collapse"}}
         ]
     },
     "template": "default"
 })
+editor.getMinder().setStatus('readonly')

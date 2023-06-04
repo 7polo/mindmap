@@ -30,7 +30,13 @@ define(function(require, exports, module) {
                 label: label,
                 key: key,
                 action: function() {
+                    console.log(command)
                     if (command.indexOf('Append') === 0) {
+
+                        if (minder._status === 'readonly') {
+                            return;
+                        }
+
                         AppendLock++;
                         minder.execCommand(command, '分支主题');
 
