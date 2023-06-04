@@ -6,3 +6,6 @@ src/
 .stylelintrc
 webpack.config.js
 yarn.lock
+example/
+dist/example.js
+dist/example.js.LICENSE.txt
