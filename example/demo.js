@@ -21,4 +21,9 @@ editor.import({
     },
     "template": "default"
 })
-editor.getMinder().setStatus('readonly')
+editor.setReadOnly(true)
+
+setTimeout(()=> {
+    console.log('恢复读写')
+    editor.setReadOnly(false)
+}, 1000 * 10)

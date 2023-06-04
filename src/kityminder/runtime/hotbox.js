@@ -20,6 +20,9 @@ define(function(require, exports, module) {
         hotbox.setParentFSM(fsm);
 
         fsm.when('normal -> hotbox', function(exit, enter, reason) {
+            if (minder._defaultOptions.readOnly) {
+                return
+            }
             var node = minder.getSelectedNode();
             var position;
             if (node) {
@@ -33,6 +36,9 @@ define(function(require, exports, module) {
         });
 
         fsm.when('normal -> normal', function(exit, enter, reason, e) {
+            if (minder._defaultOptions.readOnly) {
+                return
+            }
             if (reason == 'shortcut-handle') {
                 var handleResult = hotbox.dispatch(e);
                 if (handleResult) {

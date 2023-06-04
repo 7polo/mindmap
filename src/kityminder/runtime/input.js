@@ -34,10 +34,18 @@ define(function(require, exports, module) {
         function setupFsm() {
 
             // when jumped to input mode, enter
-            fsm.when('* -> input', enterInputMode);
+            fsm.when('* -> input', function () {
+                if (minder._defaultOptions.readOnly) {
+                    return
+                }
+                enterInputMode()
+            });
 
             // when exited, commit or exit depends on the exit reason
             fsm.when('input -> *', function(exit, enter, reason) {
+                if (minder._defaultOptions.readOnly) {
+                    return
+                }
                 switch (reason) {
                     case 'input-cancel':
                         return exitInputMode();

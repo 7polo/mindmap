@@ -1,6 +1,6 @@
 {
   "name": "@7polo/mindmap",
-  "version": "1.10.3",
+  "version": "1.10.4",
   "description": "mindmap powered by kityminder",
   "main": "./dist/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@7polo/kity": "^2.0.8",
-    "@7polo/kityminder-core": "^1.4.53"
+    "@7polo/kityminder-core": "^1.4.54"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
