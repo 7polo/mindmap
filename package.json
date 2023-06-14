@@ -1,6 +1,6 @@
 {
   "name": "@7polo/mindmap",
-  "version": "1.10.7",
+  "version": "1.10.9",
   "description": "mindmap powered by kityminder",
   "main": "./dist/index.js",
   "scripts": {

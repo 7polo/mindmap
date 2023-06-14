@@ -38,6 +38,7 @@ define(function(require, exports, module) {
         }
 
         var downX, downY;
+        var rectOffsetX, rectOffsetY;
         var MOUSE_HAS_DOWN = 0;
         var MOUSE_HAS_UP = 1;
         var BOUND_CHECK = 20;
@@ -50,7 +51,7 @@ define(function(require, exports, module) {
             if (!direction) {
                 freeHorizen = freeVirtical = false;
                 frame && kity.releaseFrame(frame);
-                frame = null;    
+                frame = null;
                 return;
             }
             if (!frame) {
@@ -86,14 +87,19 @@ define(function(require, exports, module) {
             containerY = rect.top;
             maxX = rect.width;
             maxY = rect.height;
+            rectOffsetX = rect.height;
         });
 
         minder.on('mousemove', function(e) {
             if (fsm.state() === 'drag' && flag == MOUSE_HAS_DOWN && minder.getSelectedNode()
                 && (Math.abs(downX - e.originEvent.clientX) > BOUND_CHECK
                     || Math.abs(downY - e.originEvent.clientY) > BOUND_CHECK)) {
-                osx = e.originEvent.clientX;
+                osx = e.originEvent.clientX - rectOffsetX;
                 osy = e.originEvent.clientY - containerY;
+
+                if (!window._mindlog) {
+                    console.log(`osx=${osx},maxX=${maxX}, BOUND_CHECK=${BOUND_CHECK}`)
+                }
 
                 if (osx < BOUND_CHECK) {
                     move('right', BOUND_CHECK - osx);
