@@ -30,7 +30,7 @@ define(function(require, exports, module) {
                 label: label,
                 key: key,
                 action: function() {
-                    if (command.indexOf('Append') === 0) {
+                    if (command.indexOf('Append') === 0 || command.indexOf('Remove') === 0) {
                         if (minder._defaultOptions.readOnly) {
                             return
                         }
@@ -46,6 +46,7 @@ define(function(require, exports, module) {
                             minder.off('layoutallfinish', afterAppend);
                         }
                         minder.on('layoutallfinish', afterAppend);
+                        minder.fire('nodechanged', {cmd: command})
                     } else {
                         minder.execCommand(command);
                         fsm.jump('normal', 'command-executed');

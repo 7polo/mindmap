@@ -3,6 +3,7 @@ import MinderEditor from "../src";
 // import MinderEditor from "../dist/bundle";
 
 const editor = new MinderEditor("#minder");
+
 editor.import({
     "root": {
         "data": {
@@ -21,9 +22,35 @@ editor.import({
     },
     "template": "default"
 })
-editor.setReadOnly(true)
 
-setTimeout(()=> {
-    console.log('恢复读写')
-    editor.setReadOnly(false)
-}, 1000 * 10)
+editor.onEvent('ready', (e)=> {
+    console.log('ready')
+
+    console.log(e)
+})
+
+editor.onEvent('nodechanged', (e)=> {
+    console.log('nodechanged')
+
+    console.log(e)
+})
+
+editor.onEvent('afterexeccommand', (e)=> {
+    console.log('afterexeccommand')
+
+    console.log(e)
+})
+
+editor.onEvent('contentchange', (e)=> {
+    console.log('change')
+    console.log(e)
+})
+
+
+
+// editor.setReadOnly(false)
+//
+// setTimeout(()=> {
+//     console.log('恢复读写')
+//     editor.setReadOnly(false)
+// }, 1000 * 10)

@@ -2,30 +2,29 @@ import './hotbox/hotbox.css';
 import './style/style.less';
 import '@7polo/kity/dist/kity.js';
 import '@7polo/kityminder-core/dist/kityminder.core.min.js';
-import '@7polo/kityminder-core/dist/kityminder.core.min.js';
-// import '/Users/baoqianyong/Documents/code/workspace-front/kityminder-core/dist/kityminder.core.js';
 import './hotbox/hotbox.js';
 
 import Editor from './kityminder/editor';
 
 
 export default class MinderEditor {
+
+    init = false;
     constructor(el) {
+        kityminder.Minder.registerInitHook((option)=> {
+            this.init = true;
+            const timer = setInterval(()=> {
+                if (this.getMinder()) {
+                    clearInterval(timer)
+                    this.getMinder().fire('ready')
+                }
+            }, 50)
+        });
         this.editor = new Editor(el);
-        // console.log(this.editor)
-        // const setStatus = this.getMinder().setStatus;
-        // this.getMinder().setStatus = function () {
-        //     console.log(arguments)
-        //     if (arguments[0] === 'dragtree') {
-        //         debugger
-        //         this._dragMode = 0;
-        //     }
-        //     setStatus.apply(this, arguments)
-        // }
     }
 
     getMinder() {
-        return this.editor.minder;
+        return this.editor?.minder;
     }
 
     import(json) {
