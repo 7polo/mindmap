@@ -1,3 +1,5 @@
+import {debounce} from "../tool/utils";
+
 define(function(require, exports, module) {
 
     function NodeRuntime() {
@@ -20,6 +22,17 @@ define(function(require, exports, module) {
 
         var AppendLock = 0;
 
+        const debounceEditText = debounce(()=> {
+            runtime.editText()
+        })
+
+        const afterAppend = ()=> {
+            if (!--AppendLock) {
+                debounceEditText();
+            }
+            minder.off('layoutallfinish', afterAppend);
+        }
+
         buttons.forEach(function(button) {
             var parts = button.split(':');
             var label = parts.shift();
@@ -39,14 +52,9 @@ define(function(require, exports, module) {
                         minder.execCommand(command, '分支主题');
 
                         // provide in input runtime
-                        function afterAppend () {
-                            if (!--AppendLock) {
-                                runtime.editText();
-                            }
-                            minder.off('layoutallfinish', afterAppend);
-                        }
                         minder.on('layoutallfinish', afterAppend);
-                        minder.fire('nodechanged', {cmd: command})
+
+                        // minder.fire('nodechanged', {cmd: command})
                     } else {
                         minder.execCommand(command);
                         fsm.jump('normal', 'command-executed');

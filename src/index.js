@@ -17,6 +17,13 @@ export default class MinderEditor {
                 if (this.getMinder()) {
                     clearInterval(timer)
                     this.getMinder().fire('ready')
+
+                    this.getMinder().on('execCommand', (e)=> {
+                        const cmd = e.commandName.toLowerCase();
+                        if (cmd.indexOf('append') === 0 || cmd.indexOf('remove') === 0) {
+                            this.getMinder().fire('nodechanged', e)
+                        }
+                    })
                 }
             }, 50)
         });
